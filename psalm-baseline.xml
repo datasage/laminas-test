@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.8.7@4258dc813b28c2b03865f34a17ddf072f006b357">
+<files psalm-version="6.16.1@f1f5de594dc76faf8784e02d3dc4716c91c6f6ac">
   <file src="src/PHPUnit/Constraint/IsCurrentModuleNameConstraint.php">
     <PossiblyFalseArgument>
       <code><![CDATA[strrpos($appModules, '\\')]]></code>
     </PossiblyFalseArgument>
   </file>
   <file src="src/PHPUnit/Constraint/LaminasConstraint.php">
-    <InternalMethod>
-      <code><![CDATA[getComparisonFailure]]></code>
-    </InternalMethod>
     <MixedAssignment>
       <code><![CDATA[$controllerIdentifier]]></code>
       <code><![CDATA[$controllerManager]]></code>
@@ -341,27 +338,14 @@
     <ArgumentTypeCoercion>
       <code><![CDATA['RuntimeException']]></code>
     </ArgumentTypeCoercion>
+    <InvalidScalarArgument>
+      <code><![CDATA[$_SESSION]]></code>
+    </InvalidScalarArgument>
     <MixedArgument>
       <code><![CDATA[$layout->getChildren()]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$controller]]></code>
-      <code><![CDATA[$controller]]></code>
-      <code><![CDATA[$controller]]></code>
-      <code><![CDATA[$controller]]></code>
-      <code><![CDATA[$flashMessenger]]></code>
-      <code><![CDATA[$flashMessenger]]></code>
-      <code><![CDATA[$flashMessenger]]></code>
-      <code><![CDATA[$flashMessenger]]></code>
       <code><![CDATA[$layout]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
-      <code><![CDATA[$messages]]></code>
       <code><![CDATA[$mvcEvent]]></code>
       <code><![CDATA[$routeMatch]]></code>
       <code><![CDATA[$routeMatch]]></code>
@@ -369,21 +353,9 @@
       <code><![CDATA[$viewModel]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[flashMessenger]]></code>
-      <code><![CDATA[flashMessenger]]></code>
-      <code><![CDATA[flashMessenger]]></code>
-      <code><![CDATA[flashMessenger]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
-      <code><![CDATA[get]]></code>
       <code><![CDATA[getApplication]]></code>
       <code><![CDATA[getChildren]]></code>
       <code><![CDATA[getError]]></code>
-      <code><![CDATA[getMessages]]></code>
-      <code><![CDATA[getMessages]]></code>
-      <code><![CDATA[getMessages]]></code>
-      <code><![CDATA[getMessages]]></code>
       <code><![CDATA[getParam]]></code>
       <code><![CDATA[getParam]]></code>
       <code><![CDATA[getParam]]></code>
@@ -441,7 +413,6 @@
     <MixedMethodCall>
       <code><![CDATA[addHeaderLine]]></code>
       <code><![CDATA[addHeaderLine]]></code>
-      <code><![CDATA[addMessage]]></code>
       <code><![CDATA[get]]></code>
       <code><![CDATA[get]]></code>
     </MixedMethodCall>
@@ -454,9 +425,6 @@
       <code><![CDATA[getPost]]></code>
       <code><![CDATA[getQuery]]></code>
     </UndefinedInterfaceMethod>
-    <UndefinedMagicMethod>
-      <code><![CDATA[flashMessenger]]></code>
-    </UndefinedMagicMethod>
   </file>
   <file src="test/_files/ModuleWithEvents/Module.php">
     <MissingClosureParamType>
