@@ -28,7 +28,10 @@ class IndexController extends AbstractActionController
     /** @return void */
     public function persistencetestAction()
     {
-        $this->flashMessenger()->addMessage('test');
+        // Writes session state directly rather than through the flash messenger
+        // MVC plugin: reset() operates on $_SESSION, so this observes the same
+        // behaviour without depending on laminas-mvc-plugin-flashmessenger.
+        $_SESSION['persistence-test'] = 'test';
     }
 
     /** @return Response */

@@ -596,25 +596,13 @@ class AbstractHttpControllerTestCaseTest extends AbstractHttpControllerTestCase
         }
 
         $this->dispatch('/tests-persistence');
-
-        $controller     = $this->getApplicationServiceLocator()
-                            ->get('ControllerManager')
-                            ->get('baz_index');
-        $flashMessenger = $controller->flashMessenger();
-        $messages       = $flashMessenger->getMessages();
-        $this->assertCount(0, $messages);
+        $this->assertSame('test', $_SESSION['persistence-test'] ?? null);
 
         $this->reset(false);
 
         $this->dispatch('/tests');
 
-        $controller     = $this->getApplicationServiceLocator()
-                            ->get('ControllerManager')
-                            ->get('baz_index');
-        $flashMessenger = $controller->flashMessenger();
-        $messages       = $flashMessenger->getMessages();
-
-        $this->assertCount(0, $messages);
+        $this->assertArrayNotHasKey('persistence-test', $_SESSION);
     }
 
     public function testAssertWithMultiDispatchWithPersistence(): void
@@ -624,25 +612,13 @@ class AbstractHttpControllerTestCaseTest extends AbstractHttpControllerTestCase
         }
 
         $this->dispatch('/tests-persistence');
-
-        $controller     = $this->getApplicationServiceLocator()
-                            ->get('ControllerManager')
-                            ->get('baz_index');
-        $flashMessenger = $controller->flashMessenger();
-        $messages       = $flashMessenger->getMessages();
-        $this->assertCount(0, $messages);
+        $this->assertSame('test', $_SESSION['persistence-test'] ?? null);
 
         $this->reset(true);
 
         $this->dispatch('/tests');
 
-        $controller     = $this->getApplicationServiceLocator()
-                            ->get('ControllerManager')
-                            ->get('baz_index');
-        $flashMessenger = $controller->flashMessenger();
-        $messages       = $flashMessenger->getMessages();
-
-        $this->assertCount(1, $messages);
+        $this->assertSame('test', $_SESSION['persistence-test'] ?? null);
     }
 
     public function testAssertExceptionInAction(): void

@@ -12,7 +12,6 @@ return [
     'modules'                 => [
         'Laminas\Router',
         'Laminas\Validator',
-        'Laminas\Mvc\Plugin\FlashMessenger',
         'Baz',
     ],
     'module_listener_options' => [

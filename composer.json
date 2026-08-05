@@ -44,7 +44,6 @@
         "laminas/laminas-coding-standard": "^3.0.1",
         "laminas/laminas-i18n": "^2.31",
         "laminas/laminas-modulemanager": "^2.19",
-        "laminas/laminas-mvc-plugin-flashmessenger": "^1.11",
         "laminas/laminas-session": "^2.26",
         "laminas/laminas-stdlib": "^3.21",
         "laminas/laminas-validator": "^2.65",
