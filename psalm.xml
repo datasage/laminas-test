@@ -20,16 +20,6 @@
 
     <issueHandlers>
         <ClassMustBeFinal errorLevel="info"/>
-        <InternalMethod>
-            <errorLevel type="suppress">
-                <referencedMethod name="PHPUnit\Framework\ExpectationFailedException::__construct"/>
-            </errorLevel>
-        </InternalMethod>
-        <InternalClass>
-            <errorLevel type="suppress">
-                <referencedClass name="PHPUnit\Framework\ExpectationFailedException" />
-            </errorLevel>
-        </InternalClass>
         <PossiblyUnusedMethod>
             <errorLevel type="suppress">
                 <directory name="test"/>
