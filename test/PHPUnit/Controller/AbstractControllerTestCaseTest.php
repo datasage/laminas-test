@@ -18,6 +18,7 @@ use org\bovigo\vfs\vfsStreamWrapper;
 use Override;
 use PHPUnit\Framework\AssertionFailedError;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\ExpectationFailedException;
 use RuntimeException;
 
@@ -35,9 +36,7 @@ use function sprintf;
 use function unlink;
 use function urldecode;
 
-/**
- * @group      Laminas_Test
- */
+#[Group('Laminas_Test')]
 class AbstractControllerTestCaseTest extends AbstractHttpControllerTestCase
 {
     use ExpectedExceptionTrait;
@@ -497,18 +496,14 @@ class AbstractControllerTestCaseTest extends AbstractHttpControllerTestCase
         $this->assertEquals('my content', $this->getRequest()->getContent());
     }
 
-    /**
-     * @group 6399
-     */
+    #[Group('6399')]
     public function testPatchRequestParams(): void
     {
         $this->dispatch('/tests', 'PATCH', ['a' => 1]);
         $this->assertEquals('a=1', $this->getRequest()->getContent());
     }
 
-    /**
-     * @group 6399
-     */
+    #[Group('6399')]
     public function testPreserveContentOfPatchRequest(): void
     {
         $this->getRequest()->setMethod('PATCH');
@@ -524,10 +519,8 @@ class AbstractControllerTestCaseTest extends AbstractHttpControllerTestCase
         $this->assertEquals('a=1', $this->getRequest()->getContent());
     }
 
-    /**
-     * @group 6636
-     * @group 6637
-     */
+    #[Group('6636')]
+    #[Group('6637')]
     public function testCanHandleMultidimensionalParams(): void
     {
         $this->dispatch('/tests', 'PUT', ['a' => ['b' => 1]]);
