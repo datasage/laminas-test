@@ -6,11 +6,10 @@ namespace LaminasTest\Test\PHPUnit;
 
 use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use LaminasTest\Test\ExpectedExceptionTrait;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\ExpectationFailedException;
 
-/**
- * @group      Laminas_Test
- */
+#[Group('Laminas_Test')]
 class ModuleDependenciesTest extends AbstractHttpControllerTestCase
 {
     use ExpectedExceptionTrait;

@@ -12,15 +12,14 @@ use Laminas\Test\PHPUnit\Controller\AbstractHttpControllerTestCase;
 use Laminas\View\Model\ViewModel;
 use LaminasTest\Test\ExpectedExceptionTrait;
 use Override;
+use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\ExpectationFailedException;
 use RuntimeException;
 
 use function current;
 use function extension_loaded;
 
-/**
- * @group      Laminas_Test
- */
+#[Group('Laminas_Test')]
 class AbstractHttpControllerTestCaseTest extends AbstractHttpControllerTestCase
 {
     use ExpectedExceptionTrait;
