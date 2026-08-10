@@ -31,7 +31,7 @@
     "require": {
         "laminas/laminas-eventmanager": "^3.15",
         "laminas/laminas-http": "^2.23 || ^3.0",
-        "laminas/laminas-mvc": "^3.8",
+        "laminas/laminas-mvc": "^3.8 || ^4.0",
         "laminas/laminas-servicemanager": "^3.24",
         "laminas/laminas-uri": "^2.14",
         "laminas/laminas-view": "^2.43",
@@ -43,7 +43,7 @@
     "require-dev": {
         "laminas/laminas-coding-standard": "^3.1",
         "laminas/laminas-i18n": "^2.31",
-        "laminas/laminas-modulemanager": "^2.19",
+        "laminas/laminas-modulemanager": "^2.19 || ^3.0",
         "laminas/laminas-session": "^2.26",
         "laminas/laminas-stdlib": "^3.21",
         "laminas/laminas-validator": "^2.65",
