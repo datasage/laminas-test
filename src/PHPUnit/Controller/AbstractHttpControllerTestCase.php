@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Laminas\Test\PHPUnit\Controller;
 
 use ArrayIterator;
+use InvalidArgumentException;
 use Laminas\Http\Header\HeaderInterface;
 use Laminas\Test\PHPUnit\Constraint\HasRedirectConstraint;
 use Laminas\Test\PHPUnit\Constraint\IsRedirectedRouteNameConstraint;
@@ -420,13 +421,22 @@ abstract class AbstractHttpControllerTestCase extends AbstractControllerTestCase
         $response = $this->getResponse();
         $document = new Crawler($response->getContent());
 
-        if ($useXpath) {
-            foreach ($this->xpathNamespaces as $prefix => $namespace) {
-                $document->registerNamespace($prefix, $namespace);
-            }
+        if (! $useXpath) {
+            return $document->filter($path);
         }
 
-        return $useXpath ? $document->filterXPath($path) : $document->filter($path);
+        foreach ($this->xpathNamespaces as $prefix => $namespace) {
+            $document->registerNamespace($prefix, $namespace);
+        }
+
+        try {
+            return $document->filterXPath($path);
+        } catch (InvalidArgumentException) {
+            // An invalid XPath expression matches nothing. dom-crawler 6 ignored the false that
+            // DOMXPath::query() returns for one; dom-crawler 7 coerces it to an empty document
+            // and throws, which would turn a failed assertion into an unrelated exception.
+            return new Crawler();
+        }
     }
 
     /**
